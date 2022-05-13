@@ -30,6 +30,12 @@ DnaDb::DnaDb(int size, hash_fn hash){
 
 DnaDb::~DnaDb(){
     
+    delete[] m_currentTable;
+    
+    if (m_oldTable != nullptr){
+        delete[] m_oldTable;
+    }
+    
 }
 
 bool DnaDb::insert(DNA dna){
@@ -77,11 +83,11 @@ DNA DnaDb::getDNA(string sequence, int location){
 }
 
 float DnaDb::lambda() const {
-      return 0.233;
+   return = m_currentSize / m_currentCapacity
 }
 
 float DnaDb::deletedRatio() const {
-    return 0.233;
+    return = m_currNumDeleted / m_currentSize;
 }
 
 int DnaDb::DNASequenceGenerator(int hashkey, int pos){
